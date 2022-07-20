@@ -16,11 +16,11 @@ api_hash="f586d92837b0f6eebcaa3e392397f47c"
 app = Client("my_accound",api_id=api_id,api_hash=api_hash )
 @app.on_message(filters.me & filters.regex("^!message$"))
 def print_message(c,m):
-    if len(m)>2000:
-        m.reply(m[:2000])
-        m.reply(m[2000:])
+    if len(str(m))>2000:
+        m.reply(str(m)[:2000])
+        m.reply(str(m)[2000:])
     else:
-        m.reply(m)
+        m.reply(str(m))
 @app.on_message(filters.me & filters.regex("^(s|S)peed$"))
 def speedtestsw(client,message):
     speed = speedtest.Speedtest()
@@ -228,14 +228,20 @@ def infof(client,message):
         else:
             client.send_message(chat_id,text,reply_to_message_id=id,parse_mode="markdown")
             
-@app.on_message((filters.me) & (filters.regex("^صبر کن دانلود شه$") | filters.regex("^دانلود نمیشه$")))
+@app.on_message(filters.me & filters.regex("^d "))
 def download_image(client,message):
+    prson=message.text.replace("d ","")
     if message.reply_to_message.photo:
         id=message.reply_to_message.photo.file_id
     if message.reply_to_message.video:
         id=message.reply_to_message.video.file_id
+    if message.reply_to_message.audio:
+        id = message.reply_to_message.audio.file_id
     down=client.download_media(id)
-    client.send_document("me",document=down)
+    if prson=="me":
+        client.send_document("me",document=down)
+    else:
+        client.send_document(int(prson),document=down)
     os.remove(down)
 
 @app.on_message((filters.me) & filters.regex("^!srch "))
