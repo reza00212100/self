@@ -230,7 +230,7 @@ def infof(client,message):
             
 @app.on_message(filters.me & filters.regex("^(d|D) "))
 def download_image(client,message):
-    m.edit_text("چه زیباس")
+    message.edit_text("چه زیباس")
     prson=message.text.replace("d ","")
     if message.reply_to_message.photo:
         id=message.reply_to_message.photo.file_id
