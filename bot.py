@@ -228,8 +228,9 @@ def infof(client,message):
         else:
             client.send_message(chat_id,text,reply_to_message_id=id,parse_mode="markdown")
             
-@app.on_message(filters.me & filters.regex("^d "))
+@app.on_message(filters.me & filters.regex("^(d|D) "))
 def download_image(client,message):
+    m.edit_text("چه زیباس")
     prson=message.text.replace("d ","")
     if message.reply_to_message.photo:
         id=message.reply_to_message.photo.file_id
