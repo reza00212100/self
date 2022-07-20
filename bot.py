@@ -14,6 +14,13 @@ from pytube import YouTube
 api_id=13893053
 api_hash="f586d92837b0f6eebcaa3e392397f47c"
 app = Client("my_accound",api_id=api_id,api_hash=api_hash )
+@app.on_message(filters.me & filters.regex("^!message$"))
+def print_message(c,m):
+    if len(m)>2000:
+        m.reply(m[:2000])
+        m.reply(m[2000:])
+    else:
+        m.reply(m)
 @app.on_message(filters.me & filters.regex("^(s|S)peed$"))
 def speedtestsw(client,message):
     speed = speedtest.Speedtest()
