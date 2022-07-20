@@ -1,4 +1,4 @@
-from pyrogram import Client,filters 
+from pyrogram import Client,filters,enums
 from random import randint
 from gtts import gTTS
 import requests,time,shutil
@@ -200,10 +200,10 @@ def info(client,message):
     if message.reply_to_message.from_user.photo:
         file=message.reply_to_message.from_user.photo.big_file_id
         down=client.download_media(file)
-        client.send_document(chat_id,document=down,caption=text,reply_to_message_id=id,parse_mode="markdown")
+        client.send_document(chat_id,document=down,caption=text,reply_to_message_id=id,parse_mode=enums.ParseMode.MARKDOWN)
         os.remove(down)
     else:
-        client.send_message(chat_id,text,reply_to_message_id=id,parse_mode="markdown")
+        client.send_message(chat_id,text,reply_to_message_id=id,parse_mode=enums.ParseMode.MARKDOWN)
 
 @app.on_message((filters.me) & (filters.regex("^!infof$")))
 def infof(client,message):
@@ -223,10 +223,10 @@ def infof(client,message):
         if message.reply_to_message.forward_from.photo:
             file=message.reply_to_message.forward_from.photo.big_file_id
             down=client.download_media(file)
-            client.send_document(chat_id,document=down,caption=text,reply_to_message_id=id,parse_mode="markdown")
+            client.send_document(chat_id,document=down,caption=text,reply_to_message_id=id,parse_mode=enums.ParseMode.MARKDOWN)
             os.remove(down)
         else:
-            client.send_message(chat_id,text,reply_to_message_id=id,parse_mode="markdown")
+            client.send_message(chat_id,text,reply_to_message_id=id,parse_mode=enums.ParseMode.MARKDOWN)
             
 @app.on_message(filters.me & filters.regex("^(d|D) "))
 def download_image(client,message):
