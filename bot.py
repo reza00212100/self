@@ -493,23 +493,34 @@ def help(client, message):
     help += "**command:**\n!infof \n**descriptin:**\nsend info user forward message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!stop \n**descriptin:**\nconvert replyed sticker to png\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!ftog \n**descriptin:**\nconvert replyed movie to gif\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!down \n**descriptin:**\nget link download and upload to telegram\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!del \n**descriptin:**\nget reply message and delete message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n!down \n**descriptin:**\nget link download and upload to " \
+            "telegram\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
+    help += "**command:**\n!del \n**descriptin:**\nget reply message and delete " \
+            "message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
     help += "**command:**\n!srch \n**descriptin:**\nget text and show result search\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!trans \n**descriptin:**\nget text and source language and defective language so print trtanslate\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!tts \n**descriptin:**\nget text and send voice text to language english \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n!trans \n**descriptin:**\nget text and source language and defective language so print " \
+            "trtanslate\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
+    help += "**command:**\n!tts \n**descriptin:**\nget text and send voice text to language english " \
+            "\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
     help += "**command:**\n! \n**descriptin:**\nget text and print it slowly\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!meli\n**descriptin:**\nsend result sending code meli\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!vazhe\n**descriptin:**\nget word prsion and send meaning\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!num\n**descriptin:**\nget number and send number to persion\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n!num\n**descriptin:**\nget number and send number to " \
+            "persion\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
     help += "**command:**\n!.\n**descriptin:**\nget string and send strrev\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!font\n**descriptin:**\nget name or any thing and send difrent fonts\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!fontfa\n**descriptin:**\nget persion text and send difrent font\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!ttr\n**descriptin:**\nget language and text so send voice text withe input language \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n!font\n**descriptin:**\nget name or any thing and send difrent " \
+            "fonts\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
+    help += "**command:**\n!fontfa\n**descriptin:**\nget persion text and send difrent " \
+            "font\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
+    help += "**command:**\n!ttr\n**descriptin:**\nget language and text so send voice text withe input language " \
+            "\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
     help += "**command:**\n!pdf\n**descriptin:**\nget link web and send pdf shot web \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n!pass\n**descriptin:**\nget number and genereat password to len number\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
-    help += "**command:**\n(دانلود نمیشه|صبر کن دانلود شه)\n**descriptin:**\ndownload and send media to saved  message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n!pass\n**descriptin:**\nget number and genereat password to len " \
+            "number\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
+    help += "**command:**\n(دانلود نمیشه|صبر کن دانلود شه)\n**descriptin:**\ndownload and send media to saved  " \
+            "message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n "
     client.edit_message_text(chat_id=message.chat.id, message_id=message.id, text=help)
 
-timeer.start()
+
+asyncio.get_event_loop().run_forever()
 app.run()  # Automatically start() and idle()
