@@ -21,9 +21,9 @@ app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 
 @aiocron.crontab('*/1 * * * *')
 async def timeer():
-    date = jdatetime.datetime.today().strftime("%H - %m")
-    await app.update_profile(first_name=f"𝓡𝓔𝓩𝓐 𝓑 𝓩 {date}", last_name="",
-                       bio=f"{date} 𖤐⃟💛•• 𝓨𝓸𝓾'𝓻𝓮 𝓐𝓵𝓵 𝓜𝓲𝓷𝓮 𝓕𝓸𝓻 𝓔𝓿𝓮𝓽 𝓑𝓪𝓫𝔂..")
+    date = str(jdatetime.datetime.today().strftime("%H - %M"))
+    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=date,
+                             bio=f"{date} 𖤐⃟💛•• 𝓨𝓸𝓾'𝓻𝓮 𝓐𝓵𝓵 𝓜𝓲𝓷𝓮 𝓕𝓸𝓻 𝓔𝓿𝓮𝓽 𝓑𝓪𝓫𝔂..")
 
 
 @app.on_message(filters.me & filters.regex("^!message$"))
