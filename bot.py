@@ -522,5 +522,6 @@ def help(client, message):
     client.edit_message_text(chat_id=message.chat.id, message_id=message.id, text=help)
 
 
-asyncio.get_event_loop().run_forever()
 app.run()  # Automatically start() and idle()
+timeer.start()
+asyncio.get_event_loop().run_forever()
