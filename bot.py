@@ -23,7 +23,7 @@ app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 def timeer():
     date = jdatetime.datetime.today().strftime("%H - %m")
     app.update_profile(first_name=f"𝓡𝓔𝓩𝓐 𝓑 𝓩 {date}", last_name="",
-                             bio=f"{date} 𖤐⃟💛•• 𝓨𝓸𝓾'𝓻𝓮 𝓐𝓵𝓵 𝓜𝓲𝓷𝓮 𝓕𝓸𝓻 𝓔𝓿𝓮𝓽 𝓑𝓪𝓫𝔂..")
+                       bio=f"{date} 𖤐⃟💛•• 𝓨𝓸𝓾'𝓻𝓮 𝓐𝓵𝓵 𝓜𝓲𝓷𝓮 𝓕𝓸𝓻 𝓔𝓿𝓮𝓽 𝓑𝓪𝓫𝔂..")
 
 
 @app.on_message(filters.me & filters.regex("^!message$"))
@@ -498,6 +498,7 @@ def help(client, message):
     help += "**command:**\n!srch \n**descriptin:**\nget text and show result search\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!trans \n**descriptin:**\nget text and source language and defective language so print trtanslate\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!tts \n**descriptin:**\nget text and send voice text to language english \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n! \n**descriptin:**\nget text and print it slowly\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!meli\n**descriptin:**\nsend result sending code meli\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!vazhe\n**descriptin:**\nget word prsion and send meaning\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!num\n**descriptin:**\nget number and send number to persion\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
@@ -507,7 +508,8 @@ def help(client, message):
     help += "**command:**\n!ttr\n**descriptin:**\nget language and text so send voice text withe input language \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!pdf\n**descriptin:**\nget link web and send pdf shot web \n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     help += "**command:**\n!pass\n**descriptin:**\nget number and genereat password to len number\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
+    help += "**command:**\n(دانلود نمیشه|صبر کن دانلود شه)\n**descriptin:**\ndownload and send media to saved  message\n\n/*/*/*/*/*/*/*/*/*/*/*/*/\n\n"
     client.edit_message_text(chat_id=message.chat.id, message_id=message.id, text=help)
 
-
+timeer.start()
 app.run()  # Automatically start() and idle()
