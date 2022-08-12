@@ -1,5 +1,4 @@
 import os
-
 import jdatetime
 import speedtest
 import aiocron
@@ -21,8 +20,9 @@ app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 
 @aiocron.crontab('*/1 * * * *')
 async def timeer():
-    date = str(jdatetime.datetime.today().strftime(" %-H : %-M "))
-    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=date)
+    hour = jdatetime.datetime.today().hour
+    min = jdatetime.datetime.today().minute
+    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=f" {hour} : {min}")
 
 
 @app.on_message(filters.me & filters.regex("^!message$"))
