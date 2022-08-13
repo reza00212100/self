@@ -19,12 +19,24 @@ api_hash = "f586d92837b0f6eebcaa3e392397f47c"
 app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 
 
+def number_change(num):
+    numbers = {"0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹"}
+    if numbers[num]:
+        return numbers[num]
+
+
 @aiocron.crontab('*/1 * * * *')
 async def timeer():
     ir = pytz.timezone("Asia/Tehran")
-    date = str(jdatetime.datetime.now(ir).strftime("%H - %M - %-S "))
-    print(date)
-    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=date)
+    date = str(jdatetime.datetime.now(ir).strftime("%-H •° %-M"))
+    text = ""
+    for i in date:
+        try:
+            int(i)
+            text += number_change(i)
+        except:
+            text += i
+    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=text)
 
 
 @app.on_message(filters.me & filters.regex("^!message$"))
