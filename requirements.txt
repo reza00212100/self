@@ -1,5 +1,4 @@
 gtts
-pytesseract
 pyrogram==2.0.30
 TgCrypto
 pytesseract~=0.3.8
@@ -7,11 +6,7 @@ Pillow~=8.3.1
 googletrans~=3.1.0a0
 requests~=2.25.1
 googlesearch-python~=1.0.1
-clint~=0.5.1
 moviepy~=1.0.3
-lottie
-cairosvg
-pytz
 pytube
 speedtest
 aiocron
