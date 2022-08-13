@@ -1,5 +1,6 @@
 import os
 import jdatetime
+import pytz
 import speedtest
 import aiocron
 import asyncio
@@ -20,7 +21,8 @@ app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 
 @aiocron.crontab('*/1 * * * *')
 async def timeer():
-    date = str(jdatetime.datetime.now().strftime("%H - %M - %-S "))
+    ir = pytz.timezone("Asia/Tehran")
+    date = str(jdatetime.datetime.now(ir).strftime("%H - %M - %-S "))
     print(date)
     await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=date)
 
