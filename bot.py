@@ -20,9 +20,9 @@ app = Client("my_accound", api_id=api_id, api_hash=api_hash)
 
 @aiocron.crontab('*/1 * * * *')
 async def timeer():
-    hour = jdatetime.datetime.today().hour
-    min = jdatetime.datetime.today().minute
-    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=f" {hour} : {min}")
+    date = str(jdatetime.datetime.now().strftime("%H - %M - %-S "))
+    print(date)
+    await app.update_profile(first_name="𝓡𝓔𝓩𝓐 𝓑 𝓩", last_name=date)
 
 
 @app.on_message(filters.me & filters.regex("^!message$"))
